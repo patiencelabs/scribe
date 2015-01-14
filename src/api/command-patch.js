@@ -14,6 +14,9 @@ define(function () {
     };
 
     CommandPatch.prototype.queryState = function () {
+      if( this.commandName == 'insertUnorderedList' || this.commandName == 'insertOrderedList') {
+        return false;
+      }
       return document.queryCommandState(this.commandName);
     };
 
